@@ -3,12 +3,12 @@
 *.pyc
 */*.pyc
 */**/__pycache__/*
-tensorboard/*
+fcn_keras/tensorboard/*
 old/
-snapshots/*
-experiments/*
+fcn_keras/snapshots/*
+fcn_keras/experiments/*
 !.gitkeep
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
-datasets/VOC2012/*
+fcn_keras/datasets/VOC2012/*
 *~

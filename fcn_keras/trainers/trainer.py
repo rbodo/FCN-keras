@@ -1,21 +1,8 @@
-import os
-import numpy as np
-import cv2
-import random
-import datetime
-import io
-import json
-import keras
-import string
-
-
-from keras.models import Model, load_model
-from keras.layers import Input, LSTM, Dense, TimeDistributed, Conv2D, MaxPooling2D, Reshape, Dropout, BatchNormalization, Activation, Bidirectional, concatenate, add, Lambda, Permute
 from keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard, ReduceLROnPlateau
 #import keras.backend as K
 #from keras.optimizers import Adam
 
-from base.base_trainer import BaseTrain
+from fcn_keras.base.base_trainer import BaseTrain
 
 
 class TrainerFCN(BaseTrain):

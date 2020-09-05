@@ -6,8 +6,8 @@ from scipy.io import loadmat
 def create_labels(data_folder, test_size, val_size, random_state):
 
     #training set
-    images_folder = './JPEGImages/'
-    annotations_folder = './SegmentationClass/'
+    images_folder = './image_2/'
+    annotations_folder = './annotations_fcn/'
 #    annotations_folder = './SegmentationObject/'
  
     annotations = os.listdir(data_folder + annotations_folder)
@@ -19,7 +19,7 @@ def create_labels(data_folder, test_size, val_size, random_state):
     for annotation in annotations:
         out_dict = {}
         out_dict['annotation'] = annotations_folder + annotation
-        out_dict['filename'] = images_folder + annotation[:-3] + 'jpg'
+        out_dict['filename'] = images_folder + annotation
 #        out_dict['annotation'] = annotations_train_folder + image[:-3] + 'png'
         dataset.append(out_dict)
        
@@ -31,8 +31,8 @@ def create_labels(data_folder, test_size, val_size, random_state):
     
 #    class_names = ['Aeroplane', 'Bicycle', 'Bird', 'Boat', 'Bottle', 'Bus', 'Car', 'Cat', 'Chair', 'Cow', 'Dining-table', 'Dog', 'Horse', 'Motorbike', 'Person', 'Pottedplant', 'Sheep', 'Sofa', 'Train', 'Tv-monitor']
 
-    class_names = ['Background', 'Aeroplane', 'Bicycle', 'Bird', 'Boat', 'Bottle', 'Bus', 'Car', 'Cat', 'Chair', 'Cow', 'Dining-table', 'Dog', 'Horse', 'Motorbike', 'Person', 'Pottedplant', 'Sheep', 'Sofa', 'Train', 'Tv-monitor']
-
+    # class_names = ['Background', 'Aeroplane', 'Bicycle', 'Bird', 'Boat', 'Bottle', 'Bus', 'Car', 'Cat', 'Chair', 'Cow', 'Dining-table', 'Dog', 'Horse', 'Motorbike', 'Person', 'Pottedplant', 'Sheep', 'Sofa', 'Train', 'Tv-monitor']
+    class_names = ['Background', 'Road']
 #    print(len(class_names))        
         
     labels_dict = {key: value for (key, value) in enumerate(class_names)}        
@@ -54,12 +54,12 @@ def create_labels(data_folder, test_size, val_size, random_state):
 if __name__ == '__main__':
 
     
-    data_folder = '../datasets/VOC2012/'
-    filename_out = '../datasets/labels.json'
+    data_folder = '/mnt/2646BAF446BAC3B9/Datasets/KITTI/data_road/testing/'
+    filename_out = '/mnt/2646BAF446BAC3B9/Datasets/KITTI/data_road/testing/labels.json'
     
     #split validation into val and test
-    test_size = 0.1
-    val_size = 0.1
+    test_size = 288
+    val_size = 1
     
     random_state = 18
     
